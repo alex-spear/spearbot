@@ -85,7 +85,7 @@ bot.dialog('CancelDialog',
 bot.dialog('WeatherDialog',[
     function (session, args) {
 
-        info = JSON.stringify(args)
+        info = JSON.parseJson(args)
         session.send(info);
         session.endDialog();
     }
