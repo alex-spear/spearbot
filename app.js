@@ -84,10 +84,8 @@ bot.dialog('CancelDialog',
 bot.dialog('WeatherDialog',[
     function (session, args) {
 
-        var info = JSON.stringify(args);
-        var JSONweather = JSON.parse(args);
-        var location = JSONweather['intent'][0]['entities'][0]['entity'][0];
-        session.send(location);
+        var info = JSON.parse(args)
+        session.send(info);
         session.endDialog();
     }
 ]).triggerAction({
