@@ -5,6 +5,7 @@ A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework.
 var restify = require('restify');
 var builder = require('botbuilder');
 var botbuilder_azure = require("botbuilder-azure");
+const parseJson = require('parse-json');
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -84,7 +85,7 @@ bot.dialog('CancelDialog',
 bot.dialog('WeatherDialog',[
     function (session, args) {
 
-        var info = JSON.parse(args)
+        var info = JSON.parseJson(args)
         session.send(info);
         session.endDialog();
     }
