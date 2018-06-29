@@ -83,11 +83,10 @@ bot.dialog('CancelDialog',
 })
 
 bot.dialog('WeatherDialog',[
-    function (session, args, next) {
-        var intent = args.intent;
-        var location = builder.EntityRecognizer.findEntity(intent.entities, 'dallas')
-
-        session.send(location);
+    function (session, args){
+        var json = JSON.parse(args);
+        console.log(args)
+        session.send(json);
         session.endDialog();
     }
 ]).triggerAction({
