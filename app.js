@@ -85,7 +85,7 @@ bot.dialog('WeatherDialog',[
     function (session, args) {
 
         var JSONweather = JSON.parse(args);
-        var location = JSONweather.entity
+        var location = JSONweather.entity;
         session.send('The weather in ' + location + ' is hot');
         session.endDialog();
     }
